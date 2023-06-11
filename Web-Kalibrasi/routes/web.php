@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\homecontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('page/login');
 });
+Route::get('/home',[homecontroller::class,'home'])->name('home');
+Route::get('/login',[logincontroller::class,'login'])->name('login');
+Route::post('/submitlogin',[logincontroller::class,'submitlogin'])->name('submitlogin');

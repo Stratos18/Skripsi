@@ -71,7 +71,7 @@
     <div class="container py-5">
         <div class="container-fluid py-5 text-bg-green rounded-3">
           <h1 class="display-5 fw-bold text-center">BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA</h1>
-          <p class="display-7 text-center">Kalibrasi Alat Pengukuran Kecepatan Angin</p>
+          <p class="display-6 text-center">Web Kalibrasi Alat Pengukuran Kecepatan Angin</p>
        </div>
     </div>
     <div class="container">
@@ -79,7 +79,7 @@
             <!-- /.col-md-3 -->
             <div class="col-md-4 col-sm-4 col-xs-12 mb-3">
                 <div class="p-3 text-center bg-body-tertiary border  rounded-3"style="height: 13rem;">
-                  <img src="/home/bagus/Documents/to skripsi/forntendkalibrasi/pages/asset/anemometer.png" class="mb-2" alt="anemometer">
+                  <img src="{{asset('frontend/asset/anemometer.png')}}" class="mb-2" alt="anemometer">
                   <div class="align-bottom">    
                     <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">Kalibrasi</button>
                   </div>
@@ -88,7 +88,7 @@
             <!-- /.col-md-3 -->
             <div class="col-md-4 col-sm-4 col-xs-12 mb-3">
                 <div class="p-3 text-center bg-body-tertiary border  rounded-3" style="height: 13rem;">
-                  <img src="/home/bagus/Documents/to skripsi/forntendkalibrasi/pages/asset/leader.png" class="mb-2" alt="profil">
+                  <img src="{{asset('frontend/asset/leader.png')}}" class="mb-2" alt="profil">
                         <div class="align-bottom">
                           <button type="fitur" class="btn btn-md btn-outline-secondary" href="#"
                           >User</button>
@@ -98,7 +98,7 @@
             <!-- /.col-md-3 -->
             <div class="col-md-4 col-sm-4 col-xs-12 mb-3">
                 <div class="p-3 text-center bg-body-tertiary border rounded-3"style="height: 13rem;">
-                  <img src="/home/bagus/Documents/to skripsi/forntendkalibrasi/pages/asset/settings.png" class="mb-2" alt="standar">
+                  <img src="{{asset('frontend/asset/settings.png')}}" class="mb-2" alt="standar">
                   <div class="align-bottom">
                     <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">Alat Standar</button>
                   </div>

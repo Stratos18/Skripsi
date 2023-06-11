@@ -19,14 +19,15 @@
           <div class="card login-form">
             <h1 class="card-tittle text-center border-bottom border-5">LOGIN</h1>
             <div class="card-text">
-              <form>
+              <form action="{{route('submitlogin')}}" method="post">
+                {{ csrf_field() }}
                 <div class="row mb-4 text-center">
                   <label for="InputEmail1" class="form-label">Username</label>
-                  <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" />
+                  <input type="name" class="form-control" name="name" aria-describedby="emailHelp" />
                 </div>
                 <div class="row mb-4 text-center">
                   <label for="InputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="InputPassword1" />
+                  <input type="password" class="form-control" name="password" />
                 </div>
                 <div class="row text-center">
                   <button type="submit" class="btn btn-primary btn-lg">Submit</button>
