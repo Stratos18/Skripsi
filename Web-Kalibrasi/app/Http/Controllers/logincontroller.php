@@ -15,4 +15,8 @@ class logincontroller extends Controller
             return redirect('home');}
         return redirect('/');
     }
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }
