@@ -26,10 +26,10 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Profil</a>
+              <a class="nav-link" href="{{route('profil')}}">Profil</a>
             <li class="nav-item">
               <a class="nav-link " href="{{ route('logout')}}">logout</a>
             </li>
