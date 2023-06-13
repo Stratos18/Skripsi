@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class kalibrasicontroller extends Controller
 {
     public function kalibrasi(){
-        return view('kalibrasi.infouut');
+        return view('page.infouut');
     }
 }

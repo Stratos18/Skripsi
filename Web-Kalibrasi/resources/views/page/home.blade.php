@@ -25,7 +25,9 @@
                 <div class="p-3 text-center bg-body-tertiary border  rounded-3"style="height: 13rem;">
                   <img src="{{asset('frontend/asset/anemometer.png')}}" class="mb-2" alt="anemometer">
                   <div class="align-bottom">    
-                    <button type="fitur" class="btn btn-md btn-outline-secondary" href="{{route('infouut')}}">Kalibrasi</button>
+                    <button type="fitur" class="btn btn-md btn-outline-secondary">
+                      <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('infouut')}}">Kalibrasi</a>
+                    </button>
                   </div>
                 </div>
             </div>
@@ -34,8 +36,9 @@
                 <div class="p-3 text-center bg-body-tertiary border  rounded-3" style="height: 13rem;">
                   <img src="{{asset('frontend/asset/leader.png')}}" class="mb-2" alt="profil">
                         <div class="align-bottom">
-                          <button type="fitur" class="btn btn-md btn-outline-secondary" href="#"
-                          >User</button>
+                          <button type="fitur" class="btn btn-md btn-outline-secondary">
+                            <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('profil')}}">Profile</a>
+                          </button>
                     </div>
                 </div>
             </div>
@@ -44,7 +47,9 @@
                 <div class="p-3 text-center bg-body-tertiary border rounded-3"style="height: 13rem;">
                   <img src="{{asset('frontend/asset/settings.png')}}" class="mb-2" alt="standar">
                   <div class="align-bottom">
-                    <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">Alat Standar</button>
+                    <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">
+                      <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('alatstd')}}">Alat Standar</a>
+                    </button>
                   </div>
                 </div>
             </div>
