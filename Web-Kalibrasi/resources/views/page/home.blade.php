@@ -25,7 +25,7 @@
                 <div class="p-3 text-center bg-body-tertiary border  rounded-3"style="height: 13rem;">
                   <img src="{{asset('frontend/asset/anemometer.png')}}" class="mb-2" alt="anemometer">
                   <div class="align-bottom">    
-                    <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">Kalibrasi</button>
+                    <button type="fitur" class="btn btn-md btn-outline-secondary" href="{{route('infouut')}}">Kalibrasi</button>
                   </div>
                 </div>
             </div>
