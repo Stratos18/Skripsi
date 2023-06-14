@@ -12,12 +12,13 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::truncate();
         User::create([
+            'username' => 'petugas',
             'name' => 'petugas',
-            'password' => bcrypt('petugas1'),
+            'password' =>'petugas1',
             'remember_token' => Str::random(68),
-            'email' => 'petugas.com',
+            'level'=>'admin',
+            'nip'=>'1234567',
         ]);
     }
 }
