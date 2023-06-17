@@ -17,12 +17,16 @@
             <h1 class="display-2 py-5 fw-bold align-middle">LABORATORIUM KALIBRASI</h1>
         </div>
         <div class="container-fluid">
-            <form>
+            <form method="post" action="{{ route('inputuut')}}">
+                {{ csrf_field() }}
             <h2 class="display-4 mb-2 text-center">Informasi Alat</h2>
             <div class="row justify-content-center">
                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">No Order</label>
                 <div class="col-sm-3">
-                    <input type="noOrder" class="form-control form-control-sm" id="NoOrder">               
+                    <input type="noOrder" class="form-control form-control-sm" name="no_order">               
+                    @error('no_order')
+                    <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                    @enderror
                 </div>
             </div>
             <div class="row">
@@ -32,74 +36,99 @@
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nama UUT</label>
                             <div class="col-sm-9">
-                                <input type="namauut" class="form-control form-control-sm" id="namauut"></div>
-                        </div>
+                                <input type="namauut" class="form-control form-control-sm" name="nama_uut"></div>
+                            @error('nama_uut')
+                                <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                            @enderror
+                            </div>
                         <div class="row mb-1">
-                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Marek</label>
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Merek</label>
                             <div class="col-sm-9">
-                                <input type="merek" class="form-control form-control-sm" id="merek"></div>
-                        </div>
+                                <input type="merek" class="form-control form-control-sm" name="merek"></div>
+                                @error('merek')
+                                <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                            @enderror
+                            </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Tipe</label>
                             <div class="col-sm-9">
-                                <input type="tipe" class="form-control form-control-sm" id="tipe"></div>
-                        </div>
+                                <input type="tipe" class="form-control form-control-sm" name="tipe"></div>
+                                @error('tipe')
+                                <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                                @enderror
+                            </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">No Seri</label>
                             <div class="col-sm-9">
-                                <input type="NoSeri" class="form-control form-control-sm" id="NoSeri"></div>
-                        </div>
+                                <input type="NoSeri" class="form-control form-control-sm" name="no_seri"></div>
+                                @error('no_seri')
+                                <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                            @enderror
+                            </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">tgl.test</label>
                             <div class="col-sm-9">
-                                <input type="tgl" class="form-control form-control-sm" id="tgl"></div>
-                        </div>
+                                <input type="tgl" class="form-control form-control-sm" name="tgl_test"></div>
+                                @error('tgl_test')
+                                <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                            @enderror
+                            </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">resolusi</label>
                             <div class="col-sm-9">
-                                <input type="res" class="form-control form-control-sm" id="res"></div>
-                        </div>
+                                <input type="res" class="form-control form-control-sm" name="resolusi_uut"></div>
+                                @error('resolusi_uut')
+                                <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                            @enderror
+                            </div>
+                    
                 </div>
+    
                 <!--form sebelah kanan-->
                 <div class="col-md-6">
+                    
                     <h3 class="mb-2 border-bottom border-3">Kondisi Lab</h3>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Suhu</label>
                             <div class="col-sm-9">
-                                <input type="Truang" class="form-control form-control-sm" id="Truang"></div>
+                                <input type="Truang" class="form-control form-control-sm" name="suhu_ruang"></div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Kelembapan</label>
                             <div class="col-sm-9">
-                                <input type="RHruang" class="form-control form-control-sm" id="RHruang"></div>
+                                <input type="RHruang" class="form-control form-control-sm" name="kelembaban"></div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Tekanan</label>
                             <div class="col-sm-9">
-                                <input type="tipe" class="form-control form-control-sm" id="tipe"></div>
+                                <input type="tekanan" class="form-control form-control-sm" name="tekanan"></div>
                         </div>
+                    
                 </div>
+    
                 <!--form sebelah kiri-->
                 <div class="col-md-6">
+                
                     <h3 class="mb-2 border-bottom border-3">Identitas Pemilik</h2>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nama</label>
                             <div class="col-sm-9">
-                                <input type="nama" class="form-control form-control-sm" id="nama"></div>
+                                <input type="namapemilik" class="form-control form-control-sm" name="pemilik"></div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">alamat</label>
                             <div class="col-sm-9">
-                                <textarea type="RHruang" class="form-control form-control-sm" row="3" id="RHruang"></textarea>
+                                <textarea type="alamat" class="form-control form-control-sm" row="3" name="alamat"></textarea>
                         </div>
                     </div>
                 </div>
+                
                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-primary mb-1 ">Simpan</button>
+                    <button type="submit" class="btn btn-primary mb-1 ">Simpan</button>
                     <button type="button" class="btn btn-secondary mb-1">Next</button>
                 </div>
             </div>
-            </form>
+        </form>
         </div>
     </div>
     @include('footer')

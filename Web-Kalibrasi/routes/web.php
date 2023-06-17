@@ -22,11 +22,16 @@ Route::get('/', function () {
     return view('page/login');
 });
 Route::get('/home',[homecontroller::class,'home'])->name('home');
+
 Route::get('/login',[logincontroller::class,'login'])->name('login');
 Route::post('/submitlogin',[logincontroller::class,'submitlogin'])->name('submitlogin');
 Route::get('/logout',[logincontroller::class,'logout'])->name('logout');
+
 Route::get('/pkalibrasi',[kalibrasicontroller::class,'kalibrasi'])->name('infouut');
+Route::post('/inputuut', [kalibrasicontroller::class, 'infouut'])->name('inputuut');
+
 Route::get('/alatstd',[alatstandarcontroller::class,'alatstandar'])->name('alatstd');
+
 Route::get('/profil',[profilcontroller::class,'profil'])->name('profil');
 Route::get('/edit',[profilcontroller::class,'edit'])->name('profile.edit');
 Route::put('/update',[profilcontroller::class,'update'])->name('profile.update');

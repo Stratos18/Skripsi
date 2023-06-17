@@ -22,13 +22,17 @@
                 <div class="card mb-3" style="max-width: 500px;">
                     <div class="row g-2 align-items-center">
                         <div class="col-md-4 p-4">
-                            <img class="img-fluid rounded-2" width="200" height="200" src="/home/bagus/Documents/to skripsi/forntendkalibrasi/pages/asset/husband.gif" alt="profilimage"></img>
+                            <img class="img-fluid mx-auto d-block " width="200" height="200" src="{{asset('frontend/asset/husband.gif')}}" alt="profilimage"></img>
                         </div>
                         <div class="col-md-8">
-                            <div class="card-body">
-                                <h3 class="card-title">Name</h5>
-                                <h4 class="card-text">NIP</p>
+                            <div class="card-body ">
+                                <p class="">Nama: </p>
+                                <p class="">NIP: </p>
+                                    <div class="d-grid justify-content-md-end">
+                                        <a href="{{route('profile.edit')}}" class="btn btn-sm btn-primary">edit</a>
+                                    </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

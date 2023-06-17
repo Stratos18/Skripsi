@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-light bg-light fixed-top mb-4">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Kalibrasi</a>
       <button
