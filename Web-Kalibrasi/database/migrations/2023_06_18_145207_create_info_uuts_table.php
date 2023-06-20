@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('info-uut', function (Blueprint $table) {
+        Schema::create('info_uuts', function (Blueprint $table) {
             $table->integer('no_order')->unique();
             $table->string('pemilik')->primary();
             $table->string('alamat');
@@ -26,7 +26,6 @@ return new class extends Migration
             $table->decimal('kelembaban');
             $table->decimal('tekanan');
         });
-        
     }
 
     /**
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('info__u_u_t');
+        Schema::dropIfExists('info_uuts');
     }
 };

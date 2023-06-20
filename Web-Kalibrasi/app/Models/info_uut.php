@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class infouut extends Model
+class info_uut extends Model
 {
     use HasFactory;
-    protected $table = 'info-uut';
+    public $timestamps = false;
+    protected $table = 'info_uuts';
     protected $primaryKey = 'no_order';
     protected $fillable = [
         'no_order',
@@ -25,5 +26,4 @@ class infouut extends Model
         'kelembaban',
         'tekanan'
     ];
-
 }

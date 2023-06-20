@@ -27,8 +27,10 @@ Route::get('/login',[logincontroller::class,'login'])->name('login');
 Route::post('/submitlogin',[logincontroller::class,'submitlogin'])->name('submitlogin');
 Route::get('/logout',[logincontroller::class,'logout'])->name('logout');
 
-Route::get('/pkalibrasi',[kalibrasicontroller::class,'kalibrasi'])->name('infouut');
-Route::post('/inputuut', [kalibrasicontroller::class, 'infouut'])->name('inputuut');
+Route::get('/pkalibrasi',[kalibrasicontroller::class,'index'])->name('pkalibrasi');
+Route::get('/pkalibrasi/finfouut',[kalibrasicontroller::class,'create'])->name('finfo.uut');
+Route::post('/pkalibrasi/inputuut',[kalibrasicontroller::class, 'store'])->name('input.uut');
+Route::get('/pkalibrasi/inputbaca',[kalibrasicontroller::class, 'masukangka'])->name('input.baca');
 
 Route::get('/alatstd',[alatstandarcontroller::class,'alatstandar'])->name('alatstd');
 

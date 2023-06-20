@@ -26,7 +26,7 @@
                   <img src="{{asset('frontend/asset/anemometer.png')}}" class="mb-2" alt="anemometer">
                   <div class="align-bottom">    
                     <button type="fitur" class="btn btn-md btn-outline-secondary">
-                      <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('infouut')}}">Kalibrasi</a>
+                      <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('pkalibrasi')}}">Kalibrasi</a>
                     </button>
                   </div>
                 </div>

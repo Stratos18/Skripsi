@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\infouut;
+use App\Models\info_uut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class kalibrasicontroller extends Controller
 {
-    public function kalibrasi(){
-        return view('page.infouut');
+
+    public function index(){
+        $listuut = DB::table('info_uuts')->get();
+        return view('page.kalibrasi',['listuut'=>$listuut]);
     }
-    public function infouut(Request $request)
-    {
-        $validasiinfouut=$request->validate([
-        'no_order'=>['integer','required',],
+    public function create(){
+        return view('kalibrasi.infouut');
+    }
+    public function store(Request $request)
+    {/* dd($request->all());*/
+    $validatorData = $request->validate([
+        'no_order'=>['integer','required'],
         'pemilik'=>['string','required'],
         'alamat'=>['string','required'],
         'nama_uut'=>['string','required'],
@@ -25,11 +33,11 @@ class kalibrasicontroller extends Controller
         'tempat_test'=>['string','required'],
         'suhu_ruang'=>['decimal:2','required'],
         'kelembaban'=>['decimal:2','required'],
-        'tekanan'=>['decimal:','required'],
-        ]);
-
-        infouut::create($validasiinfouut);
-        return redirect()->route('infouut')->with('success', 'Formulir berhasil disimpan!');
-
+        'tekanan'=>['decimal:2','required']]);
+    
+    info_uut::create($validatorData);
+    
+    return redirect('/pkalibrasi')->with('sucess','data telah disimpan');
     }
+       
 }

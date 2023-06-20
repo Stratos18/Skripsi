@@ -23,7 +23,7 @@
                 {{ csrf_field() }}
                 <div class="row mb-4 text-center">
                   <label for="InputEmail1" class="form-label">Username</label>
-                  <input type="name" class="form-control" name="name" aria-describedby="emailHelp" />
+                  <input type="name" class="form-control" name="name" />
                 </div>
                 <div class="row mb-4 text-center">
                   <label for="InputPassword1" class="form-label">Password</label>
