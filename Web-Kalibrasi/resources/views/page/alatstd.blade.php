@@ -17,13 +17,39 @@
             <h4 class="text-center" >LABORATORIUM KALIBRASI</h4>
         </div>
         <div class="container-fluid">
-            <h2 class="text-center border-bottom border-3"> Alat Standar</h2>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn btn-primary mb-1 ">Tambah</button>
+          <div class="row border-bottom border-3 mb-3">
+            <h2 class="col-9 "> Daftar Alat Standar</h2>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end col-3">
+              <a type="button" class="btn btn-primary mb-1" href="{{route('formalatstd')}}">tambah</a>
             </div>
+          </div>
         </div>
-
-    
+        <div class="container-fluid card p-3 rounded-3">
+          <table class="table text-center">
+           <thead class="table-light">
+            <tr>
+               <th scope="col">nama alat</th>
+               <th scope="col">tipe</th>
+               <th scope="col">no sertifikat</th>
+               <th scope="col">sertifikat</th>
+               <th scope="col">action</th>
+             </tr>
+           </thead>
+           @foreach ($liststd as $tstd)
+           <tbody>
+            <td > {{$tstd->nama_alatstd}}</td>
+            <td> {{$tstd->tipe_std}}</td>
+            <td>{{$tstd->no_sertifstd}}</td>
+            <td> {{--$tstd->sertifstd--}}
+              <a href="{{asset('sertifstd/'.$tstd->sertifstd)}}" target="_blank" rel="noopener noreferrer">lihat</a></td>
+           <td>
+            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+           </td>
+            </tbody>
+           @endforeach
+          </table>
+        </div>
+      </div>
     </div>
     @include('footer')
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
