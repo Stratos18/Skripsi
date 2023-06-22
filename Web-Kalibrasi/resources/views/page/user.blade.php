@@ -25,14 +25,15 @@
                             <img class="img-fluid mx-auto d-block " width="200" height="200" src="{{asset('frontend/asset/husband.gif')}}" alt="profilimage"></img>
                         </div>
                         <div class="col-md-8">
+                            @foreach ($user as $us)
                             <div class="card-body ">
-                                <p class="">Nama: </p>
-                                <p class="">NIP: </p>
+                                <p class="fw-bold">Nama: <span>{{$us->name}}</span> </p>
+                                <p class="-5">NIP: <span>{{$us->nip}}</span></p>
                                     <div class="d-grid justify-content-md-end">
                                         <a href="{{route('profile.edit')}}" class="btn btn-sm btn-primary">edit</a>
                                     </div>
                             </div>
-                            
+                            @endforeach
                         </div>
                     </div>
                 </div>

@@ -18,9 +18,8 @@ class kalibrasicontroller extends Controller
     public function create(){
         return view('kalibrasi.infouut');
     }
-    public function store(Request $request)
-    {/* dd($request->all());*/
-    $validatorData = $request->validate([
+    public function store(Request $request){
+        $validatorData = $request->validate([
         'no_order'=>['integer','required'],
         'pemilik'=>['string','required'],
         'alamat'=>['string','required'],
