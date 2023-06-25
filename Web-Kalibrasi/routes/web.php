@@ -19,8 +19,10 @@ use App\Http\Controllers\profilcontroller;
 */
 
 Route::get('/', function () {
-    return view('page/login');
+    return view('formsertif');
+  //  return view('page/login');
 });
+/*
 Route::get('/home',[homecontroller::class,'home'])->name('home');
 
 Route::get('/login',[logincontroller::class,'login'])->name('login');
@@ -40,4 +42,5 @@ Route::get('/alatstd/hapus/{no_sertifstd}',[alatstandarcontroller::class,'hapus'
 
 Route::get('/profil',[profilcontroller::class,'profil'])->name('profil');
 Route::get('/edit',[profilcontroller::class,'edit'])->name('profile.edit');
-Route::put('/update',[profilcontroller::class,'update'])->name('profile.update');
+Route::put('/update/{id}',[profilcontroller::class,'update'])->name('profile.update');
+*/

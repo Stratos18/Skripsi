@@ -6,13 +6,17 @@
     <title>home</title>
     <link href="{{asset('frontend/login.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"  />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
 </head>
   <body>
     <!-- navbar-->
-   @include('navbar')
+  <div class="continer border">
+   @include('navbarv2')
 
     <!-- conten-->
-    <div class="container py-5">
+    <div class="container-fluid p-4">
         <div class="container-fluid py-5 text-bg-green rounded-3">
           <h1 class="display-5 fw-bold text-center">BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA</h1>
           <p class="display-6 text-center">Web Kalibrasi Alat Pengukuran Kecepatan Angin</p>
@@ -56,9 +60,7 @@
         <!-- /.row -->
         @include('footer')
         </div>
-       
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-    <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </div>  
+ 
   </body>
 </html

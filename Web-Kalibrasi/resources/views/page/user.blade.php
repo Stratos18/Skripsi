@@ -39,6 +39,27 @@
                 </div>
             </div>
             <h2 class="text-center border-bottom border-3"> Riwayat Kalibrasi</h2>
+            <div class="container-fluid card p-3 rounded-3">
+                <table class="table text-center"">
+                 <thead class="table-light">
+                   <tr>
+                     <th scope="col">No. Order</th>
+                     <th scope="col">Pemilik</th>
+                     <th scope="col">Nama Alat</th>
+                     <th scope="col">Tipe</th>
+                   </tr>
+                 </thead>
+                 @foreach ($listuut as $du)
+                 <tbody>
+                   <td > {{$du->no_order}}</td>
+                   <td> {{$du->pemilik}}</td>
+                   <td> {{$du->nama_uut}}</td>
+                   <td> {{$du->tipe}}</td>
+                 </tbody>
+                 @endforeach
+               </table>
+     
+             </div>
         </div>
 
     @include('footer')

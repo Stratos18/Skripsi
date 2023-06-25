@@ -6,7 +6,8 @@
     <title>alan-stndar</title>
     <link href="{{asset('frontend/login.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"  />
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
   <body>
     <!-- navbar-->
     @include('navbar')
@@ -40,10 +41,17 @@
             <td > {{$tstd->nama_alatstd}}</td>
             <td> {{$tstd->tipe_std}}</td>
             <td>{{$tstd->no_sertifstd}}</td>
-            <td> {{--$tstd->sertifstd--}}
+            <td> 
               <a href="{{asset('sertifstd/'.$tstd->sertifstd)}}" target="_blank" rel="noopener noreferrer">lihat</a></td>
            <td>
-            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  
+              <i class="bi bi-trash-fill"></i>
+              <small>hapus</small>
+            </a>
+            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  
+              <i class="bi bi-vector-pen"></i>
+              <small>edit</small>
+            </a>
            </td>
             </tbody>
            @endforeach
@@ -52,7 +60,7 @@
       </div>
     </div>
     @include('footer')
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>

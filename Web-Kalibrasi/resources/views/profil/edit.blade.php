@@ -15,12 +15,12 @@
             @if (session()->has('message'))
             <div class="text-success mt-4">{{session('message')}}
             @endif
-            <form action="{{route('profile.update')}}" method="post">
-                @method("put")
-                {{ csrf_field() }}
+            <form action="{{url('profile.update')}}" method="post">
+                @method('put')
+                @csrf
                     <div class="mb-3">
                       <label for="nama"class="form-label">Nama</label>
-                      <input class="form-control" name="name">
+                      <input class="form-control" name="name" >
                         @error('name')
                             <div class="text-danger mt-2 text-sm">{{$message}}</div>
                         @enderror
@@ -32,7 +32,7 @@
                             <div class="text-danger mt-2 text-sm">{{$message}}</div>
                     @enderror
                     </div>
-                    <button class="btn btn-primary">update</button>
+                    <button type="submit" class="btn btn-primary">update</button>
               </form>
             </div>
             
