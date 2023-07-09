@@ -12,7 +12,7 @@
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
 </head>
 <body>
-    <div class="container-fluid" style="margin-top: 50px">
+    <div class="container card p-4" style="margin-top: 25px">
         <div class="row justify-conten-center mb-3">
             <div class="col-3">
                 <img src="{{asset('frontend/asset/Logo-BMKG.png')}}" height="124" class="mx-auto d-block">
@@ -49,28 +49,28 @@
                     <div class="mb-1 row">
                         <label class="col-sm-2 col-form-label">Nama Alat
                             <br><i> Instrument Name</i></label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
                     <div class="mb-1 row">
                         <label class="col-sm-2 col-form-label">Nama Alat
                             <br><i> Instrument Name</i></label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
                     <div class="mb-1 row">
                         <label class="col-sm-2 col-form-label">Nama Alat
                             <br><i> Instrument Name</i></label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
                     <div class="mb-1 row">
                         <label class="col-sm-2 col-form-label">Nama Alat
                             <br><i> Instrument Name</i></label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
@@ -84,21 +84,52 @@
                     <div class="mb-1 row">
                         <label class="col-sm-2 col-form-label">Nama
                             <br><i> Designation</i></label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
                     <div class="mb-1 row">
                         <label class="col-sm-2 col-form-label">Alamat
                             <br><i> address</i></label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- form TTD-->
+
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 align-self-end">
+                    <h4 class="mb-1">Sertifikat ini terdiri atas 2 halaman</h4>
+                        <h5><i>This certidicate commprises of 2 pages</i> </h5>
+                    </h4>
+                    <h4>Diterbitkan tanggal <input type="date" class="form" name="tgl_terbit"></h4>
+                    <h5 class="mb-4"><i>Date of issues</i> </h5>
+                    <h3 class="mb-5 fw-bold"> KEPALA PUSAT INSTRUMENTASI, REKAYASA DAN KALIBRASI</h3>
+                    <h3 class="text-decoration-underline"> nama</h3>
+                    <h3> NIP. <input type="text" class="form" name="nip"> </h3>
+                </div>
+            </div>
         </form>
         </div>
+    </div>
+    <div class="container p-4">
+            <nav aria-label="sertif">
+                <ul class="pagination pagination-lg justify-content-center">
+                  <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link">1</a></li>
+                  <li class="page-item" aria-current="page">
+                    <a class="page-link active" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
     </div>
 </body>
 </html>

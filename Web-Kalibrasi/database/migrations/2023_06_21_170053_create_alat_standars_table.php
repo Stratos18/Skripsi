@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('daerah_ukurstd')->nullable();
             $table->string('resolusi_std')->nullable();
             $table->string('uc_std')->nullable();
+            $table->string('Udriff')->nullable();
             $table->string('media')->nullable();
             $table->string('metoda')->nullable();
         });

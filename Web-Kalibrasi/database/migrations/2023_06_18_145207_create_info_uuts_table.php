@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('nama_uut')->unique();
             $table->string('merek');
-            $table->string('tipe');
+            $table->enum('tipe',['analog', 'digital']);
             $table->string('no_seri');
             $table->decimal('resolusi_uut');
             $table->date('tgl_test');

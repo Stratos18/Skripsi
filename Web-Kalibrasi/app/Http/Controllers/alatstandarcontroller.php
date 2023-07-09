@@ -15,6 +15,15 @@ class alatstandarcontroller extends Controller
     public function create(){
         return view('alat_standar.formalatstnd');
     }
+    public function edit($no_serttifstd){
+        $data = alat_standar::find($no_serttifstd);
+        if (!$data) {
+            return redirect()->route('alatstd');}
+        $data->update();
+        return redirect()->route('alatstd')>with('success',function () {
+            return 'Data berhasil disimpan!';});
+
+    }
     public function store(Request $request){
         $request->validate([
         'nama_alatstd'=>'required',

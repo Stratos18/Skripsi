@@ -24,6 +24,17 @@
     </div>
     <div class="container">
         <div class="row">
+          <!-- /.col-md-3 -->
+          <div class="col-md-4 col-sm-4 col-xs-12 mb-3">
+            <div class="p-3 text-center bg-body-tertiary border rounded-3"style="height: 13rem;">
+              <img src="{{asset('frontend/asset/settings.png')}}" class="mb-2" alt="standar">
+              <div class="align-bottom">
+                <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">
+                  <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('alatstd')}}">Alat Standar</a>
+                </button>
+              </div>
+            </div>
+        </div>
             <!-- /.col-md-3 -->
             <div class="col-md-4 col-sm-4 col-xs-12 mb-3">
                 <div class="p-3 text-center bg-body-tertiary border  rounded-3"style="height: 13rem;">
@@ -46,17 +57,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /.col-md-3 -->
-            <div class="col-md-4 col-sm-4 col-xs-12 mb-3">
-                <div class="p-3 text-center bg-body-tertiary border rounded-3"style="height: 13rem;">
-                  <img src="{{asset('frontend/asset/settings.png')}}" class="mb-2" alt="standar">
-                  <div class="align-bottom">
-                    <button type="fitur" class="btn btn-md btn-outline-secondary" href="#">
-                      <a class="link-body-emphasis link-underline-opacity-0"href="{{ route('alatstd')}}">Alat Standar</a>
-                    </button>
-                  </div>
-                </div>
-            </div>
+            
         <!-- /.row -->
         @include('footer')
         </div>

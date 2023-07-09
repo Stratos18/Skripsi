@@ -10,7 +10,7 @@
   <body>
 
     <!-- navbar-->
-
+@include('navbarv2')
     <div class="container py-5">
         <div class="container-fluid text-center text-bg-green mb-3 rounded-3" style="min-height: 150px; ">
             <h1 class="display-2 py-5 fw-bold align-middle">LABORATORIUM KALIBRASI</h1>

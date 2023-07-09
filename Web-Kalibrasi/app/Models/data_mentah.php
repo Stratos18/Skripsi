@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class data_mentah extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $primaryKey = 'id';
     protected $table = 'data_mentahs';
     protected $fillable = [
+        'no_order',
         'set_poin',
+        'inhomo',
         'baca1',
         'baca2',
         'baca3',
@@ -18,6 +22,16 @@ class data_mentah extends Model
         'bacauut2',
         'bacauut3',
         'koreksistd',
-        'koreksiuut'
+        'koreksiuut1',
+        'koreksiuut2',
+        'koreksiuut3',
+        'min_std',
+        'min_uut',
+        'max_std',
+        'max_uut',
+        'meanstd',
+        'meanuut',
+        'sd'
     ];
+
 }

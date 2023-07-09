@@ -9,7 +9,7 @@
 </head>
   <body>
     <!-- navbar-->
-
+@include('navbarv2')
     <!--end navbar-->
     <!--conten-->
     @if(session('success'))
@@ -91,17 +91,22 @@
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
                             </div>
+                           
                     
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">resolusi</label>
-                            <div class="col-sm-9">
-                                <input type="res" class="form-control form-control-sm" name="resolusi_uut" value="{{old('resolusi_uut')}}">
+                            <div class="col-sm-8">
+                                <input type="res" class="form-control form-control-sm" name="resolusi_uut"  placeholder="0.00" value="{{old('resolusi_uut')}}">
                                 @error('resolusi_uut')
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
                             </div>
-                    
+                            <div class="col-sm-1">
+                                <span class="form-text">
+                                   m/s
+                                  </span>
+                            </div>
                         </div>
                     </div>
     
@@ -111,31 +116,47 @@
                     <h3 class="mb-2 border-bottom border-3">Kondisi Lab</h3>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Suhu</label>
-                            <div class="col-sm-9">
-                                <input type="Truang" class="form-control form-control-sm" name="suhu_ruang" value="{{old('suhu_ruang')}}">
+                            <div class="col-sm-8">
+                                <input type="Truang" class="form-control form-control-sm" name="suhu_ruang" placeholder="0.00" value="{{old('suhu_ruang')}}">
                                 @error('suhu_ruang')
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
                             </div>
+                            <div class="col-sm-1">
+                                <span class="form-text">
+                                    &deg;C
+                                  </span>
+                            </div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Kelembapan</label>
-                            <div class="col-sm-9">
-                                <input type="RHruang" class="form-control form-control-sm" name="kelembaban" value="{{old('kelembaban')}}">
+                            <div class="col-sm-8">
+                                <input type="RHruang" class="form-control form-control-sm" name="kelembaban" placeholder="0.00" value="{{old('kelembaban')}}">
                                 @error('kelembaban')
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
                             </div>
+                            <div class="col-sm-1">
+                                <span class="form-text">
+                                    %
+                                  </span>
+                            </div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Tekanan</label>
-                            <div class="col-sm-9">
-                                <input type="tekanan" class="form-control form-control-sm" name="tekanan" value="{{old('tekanan')}}">
+                            <div class="col-sm-8">
+                                <input type="tekanan" class="form-control form-control-sm" name="tekanan" placeholder="0.00" value="{{old('tekanan')}}">
                                 @error('tekanan')
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
                             </div>
+                            <div class="col-sm-1">
+                                <span class="form-text">
+                                    Hpa
+                                  </span>
+                            </div>
                         </div>
+                        
                         <h3 class="mb-2 border-bottom border-3">Identitas Pemilik</h2>
                             <div class="row mb-1">
                                 <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nama</label>

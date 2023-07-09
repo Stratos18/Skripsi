@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>alan-stndar</title>
+    <title>alat-stndar</title>
     <link href="{{asset('frontend/login.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"  />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     </head>
   <body>
     <!-- navbar-->
-    @include('navbar')
+    @include('navbarv2')
     <!--conten-->
-    <div class="container" style="margin-top: 60px;">
+    <div class="container" style="margin-top: 20px;">
         <div class="container-fluid py-3 text-bg-green rounded-3 mb-3" >
             <h1 class="display-5 fw-bold text-center" style="margin-top: 25px;">BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA</h1>
             <h4 class="text-center" >LABORATORIUM KALIBRASI</h4>
@@ -48,7 +48,7 @@
               <i class="bi bi-trash-fill"></i>
               <small>hapus</small>
             </a>
-            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  
+            <a  href="/alatstd/edit/{{$tstd->no_sertifstd}}" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  
               <i class="bi bi-vector-pen"></i>
               <small>edit</small>
             </a>

@@ -19,10 +19,9 @@ use App\Http\Controllers\profilcontroller;
 */
 
 Route::get('/', function () {
-    return view('formsertif');
-  //  return view('page/login');
+  return view('page/login');
 });
-/*
+
 Route::get('/home',[homecontroller::class,'home'])->name('home');
 
 Route::get('/login',[logincontroller::class,'login'])->name('login');
@@ -32,15 +31,18 @@ Route::get('/logout',[logincontroller::class,'logout'])->name('logout');
 Route::get('/pkalibrasi',[kalibrasicontroller::class,'index'])->name('pkalibrasi');
 Route::get('/pkalibrasi/finfouut',[kalibrasicontroller::class,'create'])->name('finfo.uut');
 Route::post('/pkalibrasi/inputuut',[kalibrasicontroller::class, 'store'])->name('input.uut');
-Route::get('/pkalibrasi/inputbaca',[kalibrasicontroller::class, 'masukangka'])->name('input.baca');
-Route::post('/pkalibrasi/inputbaca',[kalibrasicontroller::class, 'masukangka'])->name('post.baca');
+Route::get('/pkalibrasi/inputbaca',[kalibrasicontroller::class, 'inputbaca'])->name('input.baca');
+Route::get('/pkalibrasi/inputbaca/getuc/{option}',[kalibrasicontroller::class, 'getUc'])->name('getUc');
+Route::post('/pkalibrasi/savebaca',[kalibrasicontroller::class, 'savebacaan'])->name('post.baca');
+
 
 Route::get('/alatstd',[alatstandarcontroller::class,'alatstandar'])->name('alatstd');
 Route::get('/alatstd/formalatstandar',[alatstandarcontroller::class,'create'])->name('formalatstd');
 Route::post('/alatstd/postformalatstandar',[alatstandarcontroller::class,'store'])->name('post.alatstnd');
 Route::get('/alatstd/hapus/{no_sertifstd}',[alatstandarcontroller::class,'hapus'])->name('hapus.alatstd');
+Route::get('/alatstd/edit/{no_sertifstd}',[alatstandarcontroller::class,'edit'])->name('edit.alatstd');
+
 
 Route::get('/profil',[profilcontroller::class,'profil'])->name('profil');
-Route::get('/edit',[profilcontroller::class,'edit'])->name('profile.edit');
-Route::put('/update/{id}',[profilcontroller::class,'update'])->name('profile.update');
-*/
+//Route::get('/edit',[profilcontroller::class,'edit'])->name('profile.edit');
+Route::match(['get', 'post'], '/update/{id}', [profilcontroller::class,'update']);

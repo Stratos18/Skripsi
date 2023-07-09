@@ -9,20 +9,21 @@
     <title>home</title>
     <link href="{{asset('frontend/login.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 </head>
   <body>
     <!-- navbar-->
-   @include('navbar')
+   @include('navbarv2')
     <!--conten-->
-    <div class="container" style="margin-top: 60px;">
+    <div class="container" style="margin-top: 25px;">
         <div class="container-fluid py-3 text-bg-green rounded-3 mb-3" >
             <h1 class="display-5 fw-bold text-center" style="margin-top: 25px;">BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA</h1>
             <h4 class="text-center" >LABORATORIUM KALIBRASI</h4>
         </div>
         <div class="container-fluid">
           <div class="row border-bottom border-3 mb-3">
-            <h2 class="col-9"> Riwayat Kalibrasi</h2>
+            <h2 class="col-9"> Riwayat Unit Under Test (UUT)</h2>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end col-3">
               <a type="button" class="btn btn-primary mb-1" href="{{route('finfo.uut')}}">new</a>
             </div>
@@ -35,6 +36,7 @@
                 <th scope="col">Pemilik</th>
                 <th scope="col">Nama Alat</th>
                 <th scope="col">Tipe</th>
+                <th scope="col"> action</th>
               </tr>
             </thead>
             @foreach ($listuut as $du)
@@ -43,6 +45,10 @@
               <td> {{$du->pemilik}}</td>
               <td> {{$du->nama_uut}}</td>
               <td> {{$du->tipe}}</td>
+              <td> <a  href="{{route('input.baca')}}" class="btn">  
+                <i class="bi bi-vector-pen"></i>
+                <small>kalibrasi</small>
+              </a></td>
             </tbody>
             @endforeach
           </table>

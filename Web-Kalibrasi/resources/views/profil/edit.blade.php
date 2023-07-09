@@ -9,7 +9,7 @@
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"  />
 </head>
   <body>
-    @include('navbar')
+    @include('navbarv2')
     <div class="row g-3 align-items-center"style="margin: 50px">
         <div style="width: 50%; ">
             @if (session()->has('message'))

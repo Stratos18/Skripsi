@@ -10,9 +10,9 @@
 </head>
   <body>
     <!-- navbar-->
-   @include('navbar')
+   @include('navbarv2')
     <!--conten-->
-    <div class="container" style="margin-top: 60px;">
+    <div class="container" style="margin-top: 25px;">
         <div class="container-fluid py-3 text-bg-green rounded-3 mb-3" >
             <h1 class="display-5 fw-bold text-center" style="margin-top: 25px;">BADAN METEOROLOGI KLIMATOLOGI DAN GEOFISIKA</h1>
             <h4 class="text-center" >LABORATORIUM KALIBRASI</h4>
@@ -30,8 +30,42 @@
                                 <p class="fw-bold">Nama: <span>{{$us->name}}</span> </p>
                                 <p class="-5">NIP: <span>{{$us->nip}}</span></p>
                                     <div class="d-grid justify-content-md-end">
-                                        <a href="{{route('profile.edit')}}" class="btn btn-sm btn-primary">edit</a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{$us->id}}" class="btn btn-sm btn-primary">edit</a>
                                     </div>
+                                    @foreach ($user as $item)
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">update</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form action="{{url('/update/'.$item->id)}}" method="post">
+                                              
+                                              @csrf
+                                                  <div class="mb-3">
+                                                    <label for="nama"class="form-label">Nama</label>
+                                                    <input class="form-control" name="name" value="{{$item->name}}">
+                                                      @error('name')
+                                                          <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                                                      @enderror
+                                                  </div>
+                                                  <div class="mb-3">
+                                                    <label for="nip" class="form-label"  >NIP</label>
+                                                    <input  class="form-control" name="nip" value="{{$item->nip}}">
+                                                    @error('nip')
+                                                          <div class="text-danger mt-2 text-sm">{{$message}}</div>
+                                                  @enderror
+                                                  </div>
+                                                  <button type="submit" class="btn btn-primary">update</button>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    @endforeach
                             </div>
                             @endforeach
                         </div>
@@ -47,14 +81,26 @@
                      <th scope="col">Pemilik</th>
                      <th scope="col">Nama Alat</th>
                      <th scope="col">Tipe</th>
+                     <th scope="col">set poin</th>
+                     <th scope="col">nilai standar</th>
+                     <th scope="col">nilai UUT</th>
+                     <th scope="col">Ketidakpastian Gabungan</th>
+                     <th scope="col">U95</th>
+                     
+
                    </tr>
                  </thead>
-                 @foreach ($listuut as $du)
+                 @foreach ($data as $du)
                  <tbody>
                    <td > {{$du->no_order}}</td>
                    <td> {{$du->pemilik}}</td>
                    <td> {{$du->nama_uut}}</td>
                    <td> {{$du->tipe}}</td>
+                   <td> {{$du->set_poin}}</td>
+                   <td> {{$du->meanstd}}</td>
+                   <td> {{$du->meanuut}}</td>
+                   <td> {{$du->ugab}}</td>
+                   <td> {{$du->u95}}</td>
                  </tbody>
                  @endforeach
                </table>
