@@ -39,10 +39,13 @@ Route::post('/pkalibrasi/savebaca',[kalibrasicontroller::class, 'savebacaan'])->
 Route::get('/alatstd',[alatstandarcontroller::class,'alatstandar'])->name('alatstd');
 Route::get('/alatstd/formalatstandar',[alatstandarcontroller::class,'create'])->name('formalatstd');
 Route::post('/alatstd/postformalatstandar',[alatstandarcontroller::class,'store'])->name('post.alatstnd');
-Route::get('/alatstd/hapus/{no_sertifstd}',[alatstandarcontroller::class,'hapus'])->name('hapus.alatstd');
-Route::get('/alatstd/edit/{no_sertifstd}',[alatstandarcontroller::class,'edit'])->name('edit.alatstd');
+Route::get('/alatstd/hapus/{id}',[alatstandarcontroller::class,'hapus'])->name('hapus.alatstd');
+Route::get('/alatstd/edit/{id}',[alatstandarcontroller::class,'edit'])->name('edit.alatstd');
+Route::post('/alatstd/update/{id}',[alatstandarcontroller::class,'update'])->name('update.alatstd');
+
 
 
 Route::get('/profil',[profilcontroller::class,'profil'])->name('profil');
+Route::get('/detail/{no_order}',[profilcontroller::class,'detail'])->name('detail');
 //Route::get('/edit',[profilcontroller::class,'edit'])->name('profile.edit');
 Route::match(['get', 'post'], '/update/{id}', [profilcontroller::class,'update']);

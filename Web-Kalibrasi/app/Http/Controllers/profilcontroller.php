@@ -2,23 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\data_mentah;
 use App\Models\info_uut;
+use App\Models\ketidakpastian;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class profilcontroller extends Controller
 {
-    public function profil(){
+    public function profil(Request $no_order){
         $user = DB::table('users')->get();
-        $data = info_uut::join('tabel_hitungs', 'info_uuts.no_order', '=', 'tabel_hitungs.no_order')
-                ->get();
-        return view('page.user',['user'=>$user],['data'=>$data]);
+        $data = DB::table('info_uuts')->get();
+        return view('page.user',compact('user','data'));
     }
-    
-  /* public function edit(){
-        return view('profil.edit');
-   }*/
+    public function detail($no_order)
+    {
+        
+        $data = info_uut::find($no_order);
+        $baca = DB::table('data_mentahs')->where('data_mentahs.no_order',$no_order)->get();
+        $uc = DB::table('tabel_hitungs')->where('tabel_hitungs.no_order', $no_order)->get();
+        
+        return view('kalibrasi.detail',compact('data', 'uc','baca'));
+       
+     
+    }
+
+   
    public function update(Request $request, $id)
    {
     if ($request->Method('post')) {
@@ -28,15 +38,8 @@ class profilcontroller extends Controller
                 'nip'=>$data['nip']
             ]);
         return redirect()->back();
-    } /*
-    $user = User::findorFail($id);
-    $validasi = $request-> validate([
-        'name'=>['required'],
-        'nip'=>['required']
-    ]);
-    $user->update($validasi);
+    }
+    }
     
-    //return redirect('/profil');*/
-}
 
 }

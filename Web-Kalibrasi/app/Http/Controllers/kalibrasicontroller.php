@@ -15,7 +15,7 @@ class kalibrasicontroller extends Controller
 {
 
     public function index(){
-        $listuut = DB::table('info_uuts')->get();
+        $listuut = info_uut::all();
         return view('page.kalibrasi',['listuut'=>$listuut]);
     }
     public function create(){

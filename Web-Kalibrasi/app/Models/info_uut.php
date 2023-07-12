@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\ketidakpastian;
 class info_uut extends Model
 {
     use HasFactory;
@@ -26,4 +26,13 @@ class info_uut extends Model
         'kelembaban',
         'tekanan'
     ];
+    public function ketidakpastian()
+    {
+      // return $this->hasMany(ketidakpastian::class);
+        
+    }
+    
+    
+    
+    
 }

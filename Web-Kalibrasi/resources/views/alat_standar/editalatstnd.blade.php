@@ -16,7 +16,7 @@
             <h1 class="display-2 py-5 fw-bold align-middle">LABORATORIUM KALIBRASI</h1>
         </div>
         <div class="container-fluid">
-            <form action="{{ route('post.alatstnd')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('/alatstd/update/'. $data->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
             <!-- elemen-elemen form-->
             <div class="row">
@@ -26,7 +26,7 @@
                             <div class="row mb-1">
                                 <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Nama Alat</label>
                                 <div class="col-sm-9">
-                                    <input type="namaAlatStd" class="form-control form-control-sm" name="nama_alatstd" id="namaAlatStd" value="{{old('nama_alatstd')}}"></div>
+                                    <input type="namaAlatStd" class="form-control form-control-sm" name="nama_alatstd" id="namaAlatStd" value="{{$data->nama_alatstd}}"></div>
                                     @error('nama_alatstd')
                                     <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                     @enderror
@@ -34,7 +34,7 @@
                             <div class="row mb-1">
                                 <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Merek</label>
                                 <div class="col-sm-9">
-                                    <input type="merekStd" class="form-control form-control-sm" name="merek_std" id="merekStd" value="{{old('merek_std')}}"></div>
+                                    <input type="merekStd" class="form-control form-control-sm" name="merek_std" id="merekStd" value="{{$data->merek_std}}"></div>
                                     @error('merek_std')
                                     <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                     @enderror
@@ -42,7 +42,7 @@
                             <div class="row mb-1">
                                 <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Tipe</label>
                                 <div class="col-sm-9">
-                                    <input type="tipeStd" class="form-control form-control-sm" name="tipe_std" id="tipeStd" value="{{old('tipe_std')}}"></div>
+                                    <input type="tipeStd" class="form-control form-control-sm" name="tipe_std" id="tipeStd" value="{{$data->tipe_std}}"></div>
                                     @error('tipe_std')
                                     <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                     @enderror
@@ -50,7 +50,7 @@
                             <div class="row mb-1">
                                 <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">No Seri</label>
                                 <div class="col-sm-9">
-                                    <input type="NoSeriStd" class="form-control form-control-sm" name="no_seristd" id="NoSeriStd" value="{{old('no_seristd')}}"></div>
+                                    <input type="NoSeriStd" class="form-control form-control-sm" name="no_seristd" id="NoSeriStd" value="{{$data->no_seristd}}"></div>
                                     @error('no_seristd')
                                     <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                     @enderror
@@ -58,19 +58,11 @@
                             <div class="row mb-1">
                                 <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">No Sertifikat</label>
                                 <div class="col-sm-9">
-                                    <input type="nSertif" class="form-control form-control-sm" name="no_sertifstd" id="nSertif" value="{{old('no_sertifstd')}}"></div>
+                                    <input type="nSertif" class="form-control form-control-sm" name="no_sertifstd" id="nSertif" value="{{$data->no_sertifstd}}"></div>
                                     @error('no_sertifstd')
                                     <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                     @enderror
                                 </div>
-                            <div class="row mb-1">
-                                <label for="fileInput" class="col-sm-3 form-label">Sertifikat</label>
-                                <div class="col-sm-9">
-                                <input type="file" class="form-control" id="sertifstd" name="sertifstd"></div>
-                                @error('sertifstd')
-                                <small class="text-danger mt-2 text-sm">{{$message}}</small>
-                                @enderror
-                            </div>
                     </div>
                 
                 <!--form sebelah kanan-->
@@ -78,7 +70,7 @@
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Daerah Ukur</label>
                             <div class="col-sm-9">
-                                <input type="DUkur" class="form-control form-control-sm" name="daerah_ukurstd" id="DUkur" value="{{old('daerah_ukurstd')}}"></div>
+                                <input type="DUkur" class="form-control form-control-sm" name="daerah_ukurstd" id="DUkur" value="{{$data->daerah_ukurstd}}"></div>
                                 @error('daerah_ukurstd')
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
@@ -86,7 +78,7 @@
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Resolusi</label>
                             <div class="col-sm-9">
-                                <input type="ResolusiSTd" class="form-control form-control-sm" name="resolusi_std" value="{{old('resolusi_std')}}" id="ResolusiSTd"></div>
+                                <input type="ResolusiSTd" class="form-control form-control-sm" name="resolusi_std" value="{{$data->resolusi_std}}" id="ResolusiSTd"></div>
                                 @error('resolusi_std')
                                 <small class="text-danger mt-2 text-sm">{{$message}}</small>
                                 @enderror
@@ -94,23 +86,23 @@
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Ketidakpastian</label>
                             <div class="col-sm-9">
-                                <input type="KtdPati" class="form-control form-control-sm" name="uc_std" id="KtdPasti" value="{{old('uc_std')}}"></div>
+                                <input type="text" class="form-control form-control-sm" name="uc_std" id="KtdPasti" value="{{$data->uc_std}}"></div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Udriff</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control form-control-sm" name="udriff" id="udriff" >
+                                <input type="text" class="form-control form-control-sm" name="udriff" id="udriff" value="{{$data->Udriff}}">
                             </div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Media</label>
                             <div class="col-sm-9">
-                                <input type="media" class="form-control form-control-sm" name="media" id="media" value="{{old('media')}}"></div>
+                                <input type="media" class="form-control form-control-sm" name="media" id="media" value="{{$data->media}}"></div>
                         </div>
                         <div class="row mb-1">
                             <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Metoda</label>
                             <div class="col-sm-9">
-                                <input type="MetodaSTD" class="form-control form-control-sm" name="metoda" id="MetodaStd" value="{{old('metoda')}}"></div>
+                                <input type="MetodaSTD" class="form-control form-control-sm" name="metoda" id="MetodaStd" value="{{$data->metoda}}"></div>
                         </div>
                         <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\info_uut;
 class ketidakpastian extends Model
 {
     use HasFactory;
@@ -27,5 +27,8 @@ class ketidakpastian extends Model
         'veff',
         'u95'
     ];
-
+    public function info_uut()
+    {
+      //  return $this->belongsTo(info_uut::class);
+    }
 }

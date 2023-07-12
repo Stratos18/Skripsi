@@ -44,11 +44,11 @@
             <td> 
               <a href="{{asset('sertifstd/'.$tstd->sertifstd)}}" target="_blank" rel="noopener noreferrer">lihat</a></td>
            <td>
-            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  
+            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn">  
               <i class="bi bi-trash-fill"></i>
               <small>hapus</small>
             </a>
-            <a  href="/alatstd/edit/{{$tstd->no_sertifstd}}" class="btn" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">  
+            <a  href="{{url('/alatstd/edit/'.$tstd->id)}}" class="btn">  
               <i class="bi bi-vector-pen"></i>
               <small>edit</small>
             </a>

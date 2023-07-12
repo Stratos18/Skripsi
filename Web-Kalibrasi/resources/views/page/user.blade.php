@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>user-profil</title>
-    <link href="login.css" rel="stylesheet" />
     <link href="{{asset('frontend/login.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
   <body>
     <!-- navbar-->
@@ -73,7 +73,11 @@
                 </div>
             </div>
             <h2 class="text-center border-bottom border-3"> Riwayat Kalibrasi</h2>
-            <div class="container-fluid card p-3 rounded-3">
+            <div class="container">
+
+              
+            
+            <div class="container-fluid p-3 rounded-3">
                 <table class="table text-center"">
                  <thead class="table-light">
                    <tr>
@@ -81,36 +85,33 @@
                      <th scope="col">Pemilik</th>
                      <th scope="col">Nama Alat</th>
                      <th scope="col">Tipe</th>
-                     <th scope="col">set poin</th>
-                     <th scope="col">nilai standar</th>
-                     <th scope="col">nilai UUT</th>
-                     <th scope="col">Ketidakpastian Gabungan</th>
-                     <th scope="col">U95</th>
+                     <th scope="col">action</th>
                      
 
                    </tr>
                  </thead>
-                 @foreach ($data as $du)
+                @foreach ($data as $item)
+                    
+               
                  <tbody>
-                   <td > {{$du->no_order}}</td>
-                   <td> {{$du->pemilik}}</td>
-                   <td> {{$du->nama_uut}}</td>
-                   <td> {{$du->tipe}}</td>
-                   <td> {{$du->set_poin}}</td>
-                   <td> {{$du->meanstd}}</td>
-                   <td> {{$du->meanuut}}</td>
-                   <td> {{$du->ugab}}</td>
-                   <td> {{$du->u95}}</td>
+                   <td > {{$item->no_order}}</td>
+                   <td> {{$item->pemilik}}</td>
+                   <td> {{$item->nama_uut}}</td>
+                   <td> {{$item->tipe}}</td>
+                   <td style="text-align:center" width="200px"> 
+                    <a href="{{url('/detail/'.$item->no_order)}}" type="button" class="btn btn-success " 
+                      title="detail"><i class="bi bi-eye-fill text-light"></i></a></td>
                  </tbody>
-                 @endforeach
-               </table>
-     
-             </div>
+                @endforeach
+               </table>  
+             </div>       
         </div>
-
-    @include('footer')
     </div>
     
+    
+    </div>
+
+    @include('footer')
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

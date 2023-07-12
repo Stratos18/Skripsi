@@ -203,31 +203,7 @@
             </form>
             <script src="{{asset('frontend/hitungkoreksi.js')}}"></script> 
                 
-        <script>
-            // Tangkap peristiwa perubahan pilihan select
-            document.getElementById('option').addEventListener('change', function() {
-              var selectedOption = this.value;
-              if (selectedOption !== '') {
-                fetchData(selectedOption); // Panggil fungsi untuk mengambil data yang sesuai
-              } else {
-                clearData(); // Panggil fungsi untuk menghapus data jika opsi tidak dipilih
-              }
-            });
-          
-            function fetchData(option) {
-              fetch('/pkalibrasi/inputbaca/getuc/' + option) // Ganti dengan URL endpoint yang sesuai di sisi server
-                .then(response => response.text())
-                .then(data => {
-                  document.getElementById('dataContainer').innerHTML = data; // Update konten dengan data yang diterima
-                })
-                .catch(error => console.log(error));
-            }
-          
-            function clearData() {
-              document.getElementById('dataContainer').innerHTML = ''; // Hapus konten data
-            }
-          </script>
-    </div>
+            </div>
    
     
 

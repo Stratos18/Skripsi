@@ -10,8 +10,9 @@ class alat_standar extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = 'alat_standars';
-    protected $primaryKey = 'no_sertifstd';
+    protected $primaryKey = 'id';
     protected $fillable = [
+        'no_sertifstd',
         'nama_alatstd',
         'merek_std',
         'tipe_std',
@@ -22,6 +23,7 @@ class alat_standar extends Model
         'resolusi_std',
         'uc_std',
         'media',
-        'metoda'
+        'metoda',
+        'udriff'
     ];
 }

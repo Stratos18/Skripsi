@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alat_standars', function (Blueprint $table) {
-            $table->string('nama_alatstd')->unique();
+            $table->id();
+            $table->string('nama_alatstd');
             $table->string('merek_std')->nullable();
             $table->string('tipe_std')->nullable();
             $table->string('no_seristd')->nullable();
-            $table->string('no_sertifstd')->primary();
+            $table->string('no_sertifstd')->unique();
             $table->string('sertifstd')->nullable();
             $table->string('daerah_ukurstd')->nullable();
             $table->string('resolusi_std')->nullable();

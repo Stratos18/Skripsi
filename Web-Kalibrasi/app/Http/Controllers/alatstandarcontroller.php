@@ -15,14 +15,14 @@ class alatstandarcontroller extends Controller
     public function create(){
         return view('alat_standar.formalatstnd');
     }
-    public function edit($no_serttifstd){
-        $data = alat_standar::find($no_serttifstd);
-        if (!$data) {
-            return redirect()->route('alatstd');}
-        $data->update();
-        return redirect()->route('alatstd')>with('success',function () {
-            return 'Data berhasil disimpan!';});
-
+    public function edit($id){
+        $data = alat_standar::findorfail($id);
+        return view('alat_standar.editalatstnd',compact('data'));
+    }
+    public function update(Request $request, $id){
+        $data = alat_standar::findorfail($id);
+        $data->update($request->all());
+        return redirect()->route('alatstd');
     }
     public function store(Request $request){
         $request->validate([
@@ -36,7 +36,8 @@ class alatstandarcontroller extends Controller
         'resolusi_std'=>'required',
         'uc_std'=>'required',
         'media'=>'required',
-        'metoda'=>'required'
+        'metoda'=>'required',
+        'udriff'=>'required'
         ]);
 
         $sertifstd = $request->file('sertifstd');
@@ -61,13 +62,12 @@ class alatstandarcontroller extends Controller
       
         return redirect('alatstd')->with('success', 'data berhasil diunggah!');
     }
-    public function hapus($no_serttifstd)
+    public function hapus($id)
     {
-        $data = alat_standar::find($no_serttifstd);
+        $data = alat_standar::find($id);
         if (!$data) {
             return redirect()->route('alatstd');}
         $data->delete();
-        return redirect()->route('alatstd')>with('success',function () {
-            return 'Data berhasil disimpan!';});
+        return redirect()->route('alatstd');
     }
 }
