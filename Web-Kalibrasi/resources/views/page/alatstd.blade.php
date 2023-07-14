@@ -44,13 +44,11 @@
             <td> 
               <a href="{{asset('sertifstd/'.$tstd->sertifstd)}}" target="_blank" rel="noopener noreferrer">lihat</a></td>
            <td>
-            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn">  
-              <i class="bi bi-trash-fill"></i>
-              <small>hapus</small>
+            <a  href="/alatstd/hapus/{{$tstd->no_sertifstd}}" class="btn btn-danger" title="Hapus">  
+              <i class="bi bi-trash-fill text-light"></i>
             </a>
-            <a  href="{{url('/alatstd/edit/'.$tstd->id)}}" class="btn">  
-              <i class="bi bi-vector-pen"></i>
-              <small>edit</small>
+            <a  href="{{url('/alatstd/edit/'.$tstd->id)}}" class="btn btn-primary" title="Edit">  
+              <i class="bi bi-vector-pen text-light"></i>
             </a>
            </td>
             </tbody>

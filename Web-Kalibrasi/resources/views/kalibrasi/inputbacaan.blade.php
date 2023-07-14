@@ -23,15 +23,14 @@
         <div class="container-fluid">
             <form action="{{route('post.baca')}}" method="POST">
                 @csrf
-                <div class="form-grup mb-1">
+                <div class="row form-grup mb-1 justify-content-center">
+                    
                     <label class="col-sm-2 col-form-label col-form-label-sm">no order</label>
-                    <div class="d-flex justify-content-center"">
-                    <select id="option" name="no_order" class="form-select text-center" style="width: 100px;">
-                        <option value="">-no order-</option>
-                        @foreach ($options as $option)
-                            <option value="{{$option->no_order}}">{{ $option->no_order }}</option>
-                        @endforeach
-                    </select>
+                        @foreach ($noorder as $option)
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" name="no_order" value="{{$option->no_order}}">
+                    </div>
+                       
                     </div>
                
                 </div>
@@ -39,8 +38,9 @@
                 <div class="row justify-content-center align-items-center mb-1">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">inhomogenitas media :</label>
                     <div class="col-sm-2">
-                        <input type="float" class="form-control form-control-sm" name="inhomo" id="inhomo">               
+                        <input type="float" class="form-control form-control-sm" name="inhomo" id="inhomo" value="{{$option->inhomo}}">               
                     </div>
+                    @endforeach
                 </div>
                 <div class="row justify-content-center mb-1">
                     <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Set Poin :</label>
@@ -142,13 +142,19 @@
 
                 </div>
                 <div class="row justify-content-center mb-3 ">
+                    <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Koreksi Rata-Rata:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control form-control-sm" name="koreksi" id="meankoresi" readonly>               
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3 ">
                     <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">Standar Deviasi:</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control form-control-sm" name="sd" id="sd" >               
                      </div>
                 </div>
                 <div class="row justify-content-center align-items-center mb-3 ">
-                    @foreach ($alatstd as $std)
+                    @foreach ($noorder as $std)
                     <label class="col-sm-2 col-form-label col-form-label-sm">U driff: </label>
                     <div class="col-sm-2">
                         <input type="float" class="form-control form-control-sm" style="width: 100px;" value="{{$std->Udriff}} " id="Udriff" >           
@@ -157,14 +163,14 @@
                     <div class="col-sm-2">
                         <input type="text" class="form-control form-control-sm" style="width: 100px;" value="{{$std->uc_std}}" id="Usertif" >               
                      </div>
-                     <label class="col-sm-2 col-form-label col-form-label-sm">resolusi stanadar: </label>
+                     <label class="col-sm-2 col-form-label col-form-label-sm">resolusi standar: </label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control form-control-sm" style="width: 100px;" value="{{$std->resolusi_std}}" id="resolusistd" >               
                      </div>
                     @endforeach
                     
                 </div>
-                <div class="container">
+                <div class="">
                     <table class="table text-center">
                         <thead class="table-light">
                          <tr>
@@ -173,36 +179,79 @@
                             <th scope="col">U3</th>
                             <th scope="col">U4</th>
                             <th scope="col">U5</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <td><input name="ui" id="u1" type="text" style="width: 75px;" readonly ></td>
+                            <td><input name="u2" id="u2"  type="text" style="width: 75px;"readonly></td>
+                            <td><input name="u3" id="u3"  type="text"style="width: 75px;"readonly></td>
+                            <td><input name="u4" id="u4"  type="text"style="width: 75px;"readonly></td>
+                            <td><input name="u5" id="u5"  type="text"style="width: 75px;"readonly></td>
+                         </tbody>
+                       </table>
+                    <table class="table text -center">
+                        <thead class="table-light">
                             <th scope="col">U6</th>
                             <th scope="col">U7</th>
                             <th scope="col">Ugab</th>
                             <th scope="col">Veff</th>
                             <th scope="col">U95</th>
-                          </tr>
                         </thead>
                         <tbody>
-                         <td><input name="ui" id="u1" type="text" style="width: 75px;" readonly ></td>
-                         <td><input name="u2" id="u2"  type="text" style="width: 75px;"readonly></td>
-                         <td><input name="u3" id="u3"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="u4" id="u4"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="u5" id="u5"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="u6" id="u6"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="u7" id="u7"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="ugab" id="ugab"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="veff" id="veff"  type="text"style="width: 75px;"readonly></td>
-                         <td><input name="u95" id="u95"  type="text"style="width: 75px;"readonly></td>
-                         </tbody>
+                            <td><input name="u6" id="u6"  type="text"style="width: 75px;"readonly></td>
+                            <td><input name="u7" id="u7"  type="text"style="width: 75px;"readonly></td>
+                            <td><input name="ugab" id="ugab"  type="text"style="width: 75px;"readonly></td>
+                            <td><input name="veff" id="veff"  type="text"style="width: 75px;"readonly></td>
+                            <td><input name="u95" id="u95"  type="text"style="width: 75px;"readonly></td>
+                        </tbody>
                        </table>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <button class="btn btn-secondary" type="submit">Simpan</button>
-                    <button class="btn btn-secondary" type="button">Laporan</button>
-                    <a href="{{route('home')}}" type="button" class="btn btn-primary">back</a>
+                    <a href="{{route('home')}}" type="button" class="btn btn-primary">Back</a>
+                    <button class="btn btn-success" type="submit">Simpan</button>
+                   
+                    
                 </div> 
             </div>
             </form>
             <script src="{{asset('frontend/hitungkoreksi.js')}}"></script> 
-                
+            <table class="table text-center" >
+                <thead class="table-light">
+                 <tr>
+                    
+                    <th scope="col">alat standar</th>
+                    <th scope="col">alat yang dikalibrasi</th>
+                    <th scope="col">U1</th>
+                    <th scope="col">U2</th>
+                    <th scope="col">U3</th>
+                    <th scope="col">U4</th>
+                    <th scope="col">U5</th>
+                    <th scope="col">U6</th>
+                    <th scope="col">U7</th>
+                    <th scope="col">Ugab</th>
+               
+                    <th scope="col">U95</th>
+                  </tr>
+                </thead>
+                @foreach ($datauc as $uc)
+                         
+                <tbody>           
+              
+                  <td >{{$uc->meanstd}}</td>
+                  <td >{{$uc->meanuut}}</td>
+                  <td >{{$uc->ui}}</td>
+                  <td >{{$uc->u2}}</td>
+                  <td >{{$uc->u3}}</td>
+                  <td >{{$uc->u4}}</td>
+                  <td >{{$uc->u5}}</td>
+                  <td >{{$uc->u6}}</td>
+                  <td >{{$uc->u7}}</td>
+                  <td >{{$uc->ugab}}</td>
+              
+                  <td >{{$uc->u95}}</td>
+                 </tbody>
+                 @endforeach
+            </table>
             </div>
    
     

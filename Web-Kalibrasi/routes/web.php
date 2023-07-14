@@ -29,10 +29,10 @@ Route::post('/submitlogin',[logincontroller::class,'submitlogin'])->name('submit
 Route::get('/logout',[logincontroller::class,'logout'])->name('logout');
 
 Route::get('/pkalibrasi',[kalibrasicontroller::class,'index'])->name('pkalibrasi');
+Route::get('/pkalibrasi/hapus/{no_order}',[kalibrasicontroller::class,'hapus'])->name('hapus.data');
 Route::get('/pkalibrasi/finfouut',[kalibrasicontroller::class,'create'])->name('finfo.uut');
 Route::post('/pkalibrasi/inputuut',[kalibrasicontroller::class, 'store'])->name('input.uut');
-Route::get('/pkalibrasi/inputbaca',[kalibrasicontroller::class, 'inputbaca'])->name('input.baca');
-Route::get('/pkalibrasi/inputbaca/getuc/{option}',[kalibrasicontroller::class, 'getUc'])->name('getUc');
+Route::get('/pkalibrasi/inputbaca/{no_order}',[kalibrasicontroller::class, 'inputbaca'])->name('input.baca');
 Route::post('/pkalibrasi/savebaca',[kalibrasicontroller::class, 'savebacaan'])->name('post.baca');
 
 

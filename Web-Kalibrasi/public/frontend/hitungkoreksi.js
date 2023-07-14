@@ -8,21 +8,14 @@ $(document).ready(function () {
         var uut2 = parseFloat($("#bacauut2").val()) || 0;
         var b3 = parseFloat($("#baca3").val()) || 0;
         var uut3 = parseFloat($("#bacauut3").val()) || 0;
+        var Usertif = parseFloat($("#Usertif").val()) || 0;
+        var Udriff = parseFloat($("#Udriff").val()) || 0;
+        var L = parseFloat($("#resolusistd").val()) || 0;
+        var inhomo = parseFloat($("#inhomo").val()) || 0;
         var korek1 = b1 + kstd - uut1;
         var korek2 = b2 + kstd - uut2;
         var korek3 = b3 + kstd - uut3;
-        $("#koreksiuut1").val(korek1);
-        $("#koreksiuut2").val(korek2);
-        $("#koreksiuut3").val(korek3);
-    }
-    function hitungMeanMaxMin() {
-        var kstd = parseFloat($("#koreksistd").val()) || 0;
-        var b1 = parseFloat($("#baca1").val()) || 0;
-        var uut1 = parseFloat($("#bacauut1").val()) || 0;
-        var b2 = parseFloat($("#baca2").val()) || 0;
-        var uut2 = parseFloat($("#bacauut2").val()) || 0;
-        var b3 = parseFloat($("#baca3").val()) || 0;
-        var uut3 = parseFloat($("#bacauut3").val()) || 0;
+
         //bacaan standar terkoreksi
         var tkorek1 = b1 + kstd;
         var tkorek2 = b2 + kstd;
@@ -39,37 +32,12 @@ $(document).ready(function () {
         var avgstd = (tkorek1 + tkorek2 + tkorek3) / 3;
         //mean uut
         var avguut = (uut1 + uut2 + uut3) / 3;
+        var avgkoreksi = avgstd - avguut;
         //u4
-        var U4 = (maxstd - minstd) / (2 * Math.sqrt(3));
-        $("#u4").val(U4.toFixed(4));
-        //u5
-        var U5 = (maxuut - minuut) / (2 * Math.sqrt(3));
-        $("#u5").val(U5.toFixed(4));
-
-        //tampilkan hasil
-        $("#max_std").val(maxstd);
-        $("#max_uut").val(maxuut);
-        $("#min_std").val(minstd);
-        $("#min_uut").val(minuut);
-        $("#meanstd").val(avgstd.toFixed(4));
-        $("#meanuut").val(avguut.toFixed(4));
-    }
-    function hitungStandarDeviasi() {
-        var uut1 = parseFloat($("#bacauut1").val()) || 0;
-        var uut2 = parseFloat($("#bacauut2").val()) || 0;
-        var uut3 = parseFloat($("#bacauut3").val()) || 0;
-        var Usertif = parseFloat($("#Usertif").val()) || 0;
-        var Udriff = parseFloat($("#Udriff").val()) || 0;
-        var L = parseFloat($("#resolusistd").val()) || 0;
-        var inhomo = parseFloat($("#inhomo").val()) || 0;
-        var U4 = parseFloat($("#u4").val()) || 0;
-        var U5 = parseFloat($("#u5").val()) || 0;
-
         // Hitung standar deviasi
-        var mean = (uut1 + uut2 + uut3) / 3;
-        var deviation1 = Math.pow(uut1 - mean, 2);
-        var deviation2 = Math.pow(uut2 - mean, 2);
-        var deviation3 = Math.pow(uut3 - mean, 2);
+        var deviation1 = Math.pow(uut1 - avguut, 2);
+        var deviation2 = Math.pow(uut2 - avguut, 2);
+        var deviation3 = Math.pow(uut3 - avguut, 2);
         var variance = (deviation1 + deviation2 + deviation3) / 3;
         var standardDeviation = Math.sqrt(variance);
         //hitung u1
@@ -85,9 +53,11 @@ $(document).ready(function () {
         var u3 = Math.pow(U3, 2);
         var v3 = Math.pow(U3, 4) / 50;
         //u4
+        var U4 = (maxstd - minstd) / (2 * Math.sqrt(3));
         var u4 = Math.pow(U4, 2);
         var v4 = Math.pow(U4, 4) / 50;
         //u5
+        var U5 = (maxuut - minuut) / (2 * Math.sqrt(3));
         var u5 = Math.pow(U5, 2);
         var v5 = Math.pow(U5, 4) / 50;
         //hitung u6
@@ -138,12 +108,24 @@ $(document).ready(function () {
             var u95 = Ugab * 1.96;
             $("#u95").val(u95.toFixed(4));
         }
-        // Tampilkan hasil standar deviasi
+
+        $("#koreksiuut1").val(korek1);
+        $("#koreksiuut2").val(korek2);
+        $("#koreksiuut3").val(korek3);
+        $("#max_std").val(maxstd);
+        $("#max_uut").val(maxuut);
+        $("#min_std").val(minstd);
+        $("#min_uut").val(minuut);
+        $("#meanstd").val(avgstd.toFixed(4));
+        $("#meanuut").val(avguut.toFixed(4));
+        $("#meankoresi").val(avgkoreksi.toFixed(2));
         $("#sd").val(standardDeviation.toFixed(4));
-        //u1
+
         $("#u1").val(U1.toFixed(4));
         $("#u2").val(U2.toFixed(4));
         $("#u3").val(U3.toFixed(4));
+        $("#u4").val(U4.toFixed(4));
+        $("#u5").val(U5.toFixed(4));
         $("#u6").val(U6.toFixed(4));
         $("#u7").val(U7.toFixed(4));
         $("#ugab").val(Ugab.toFixed(4));
@@ -154,13 +136,5 @@ $(document).ready(function () {
     $("#baca1, #koreksistd, #bacauut1,#baca2,#bacauut2,#baca3, #bacauut3").on(
         "change",
         hitungNilai
-    );
-    $("#baca1, #koreksistd, #bacauut1,#baca2,#bacauut2,#baca3, #bacauut3").on(
-        "change",
-        hitungStandarDeviasi
-    );
-    $("#baca1, #koreksistd, #bacauut1,#baca2,#bacauut2,#baca3, #bacauut3").on(
-        "change",
-        hitungMeanMaxMin
     );
 });

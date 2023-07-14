@@ -42,12 +42,15 @@
               <td> {{$du->pemilik}}</td>
               <td> {{$du->nama_uut}}</td>
               <td> {{$du->tipe}}</td>
-              <td> <a  href="{{route('input.baca')}}" class="btn btn-primary" title="kalibrasi">  
-                <i class="bi bi-vector-pen"></i>
+              <td> <a  href="/pkalibrasi/inputbaca/{{$du->no_order}}}"  class="btn btn-primary" title="kalibrasi">  
+                <i class="bi bi-calculator-fill text-light"></i></a>
               </a>
-              <a  href="#" data-bs-toggle="modal" data-bs-target="#detailuut{{$du->no_order}}" class="btn bg-success" title="detail">  
+              <a  data-bs-toggle="modal" data-bs-target="#detailuut{{$du->no_order}}" class="btn bg-success" title="detail">  
                 <i class="bi bi-eye-fill text-light"></i></a>
+              <a  href="/pkalibrasi/hapus/{{$du->no_order}}" class="btn btn-danger" title="kalibrasi">  
+                <i class="bi bi-trash-fill text-light"></i></a>
             </td>
+            
               
             </tbody>
             @endforeach
@@ -99,9 +102,9 @@
                               <p>Tekanan</p>
                             </div>
                             <div class="col-8">
-                              <p>: {{$du->suhu_ruang}}</p>
-                              <p>: {{$du->kelembaban}}</p>
-                              <p>: {{$du->tekanan}}</p>
+                              <p>: {{$du->suhu_ruang}} &degC</p>
+                              <p>: {{$du->kelembaban}} %</p>
+                              <p>: {{$du->tekanan}} hPa</p>
                             </div>
                           </div>
                           <div class="row border-3 border-bottom">Informasi Pemilik</div>
@@ -117,6 +120,7 @@
                           </div>
                         </div>
                     </div>
+                    
                 </div>
               </div>
             </div>

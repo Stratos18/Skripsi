@@ -30,7 +30,7 @@
           <h5>No. Order <br>{{$data->no_order}} </h5>
           </div>
       </div>
-      <div class="col-6 col--12">
+      <div class="col-6">
         <div class="row">
           <div class="col-6">
             <h6>Pemilik</h6>
@@ -48,11 +48,19 @@
           </div>
         </div>
     </div>
-      
-    
-      <div class="col-md-4 ms-auto ">
-        <div class="row"><h6 class="border-bottom">Kondisi Ruang</h6></div>
+      <div class="col-4 ms-auto ">
         <div class="row">
+          <div class="col-6">
+            <h6>Kapasitas</h6>
+            <h6>Graduasi</h6>
+          </div>
+          <div class="col-6">
+            <h6>: {{$data->daerah_ukur}} m/s</h6>
+            <h6>: {{$data->resolusi_uut}} m/s</h6>
+          </div>
+        </div>
+        <div class="row"><h6 class="border-bottom border-top">Kondisi Ruang</h6></div>
+        <div class="row border bg-warning rounded-3">
           <div class="col-6">
             <h6>suhu</h6>
             <h6>kelembaban</h6>
@@ -69,82 +77,87 @@
   
   </div>
   <div class="container">
-    <div class="row text-center border-bottom border-top">
+    <div class="row text-center">
         <h5>Hasil Pembacaan</h5>
+    </div>
+    <div class="rounded border">
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Set Poin</th>
+              <th scope="col">Rata-rata standar</th>
+              <th scope="col">Rata-rata UUT</th>
+              <th scope="col">Max Standar</th>
+              <th scope="col">Max UUt</th>
+              <th scope="col">Min Standar</th>
+              <th scope="col">Min UUT</th>
+              <th scope="col">Koreksi</th>
+              <th scope="col">Standar Deviasi</th>
+            </tr>
+          </thead>
+          @foreach ($baca as $item)
+          <tbody>
+            
+            <th> {{$item->set_poin}}</th>
+            <th> {{$item->meanstd}}</th>
+            <th> {{$item->meanuut}}</th>
+            <th> {{$item->max_std}}</th>
+            <th> {{$item->max_uut}}</th>
+            <th> {{$item->min_std}}</th>
+            <th> {{$item->min_uut}}</th>
+            <th> {{$item->koreksi}}</th>
+            <th> {{$item->sd}}</th>
+          
+          </tbody>
+        @endforeach
+        </table>  
       </div>
-      <table class="table text-center">
-      <thead class="table-light">
-        <tr>
-           <th scope="col">Set Poin</th>
-           <th scope="col">Rata-rata standar</th>
-           <th scope="col">Rata-rata UUT</th>
-           <th scope="col">Max Standar</th>
-           <th scope="col">Max UUt</th>
-           <th scope="col">Min Standar</th>
-           <th scope="col">Min UUT</th>
-           <th scope="col">Koreksi</th>
-           <th scope="col">Standar Deviasi</th>
-         </tr>
-      </thead>
-      @foreach ($baca as $item)
-      <tbody>
-        
-        <th> {{$item->set_poin}}</th>
-        <th> {{$item->meanstd}}</th>
-        <th> {{$item->meanuut}}</th>
-        <th> {{$item->max_std}}</th>
-        <th> {{$item->max_uut}}</th>
-        <th> {{$item->min_std}}</th>
-        <th> {{$item->min_uut}}</th>
-        <th> {{$item->koreksi}}</th>
-        <th> {{$item->sd}}</th>
-       
-     </tbody>
-     @endforeach
-    </table>  
+    </div>
   </div>
-   
-    <div class="row text-center border-bottom border-top">
+    <div class="row text-center  mb-2">
       <h5>Perhitungan Ketidakpastian</h5>
     </div>
-    
-    <table class="table text-center" >
-    <thead class="table-light">
-     <tr>
-        
-        <th scope="col">alat standar</th>
-        <th scope="col">alat yang dikalibrasi</th>
-        <th scope="col">U1</th>
-        <th scope="col">U2</th>
-        <th scope="col">U3</th>
-        <th scope="col">U4</th>
-        <th scope="col">U5</th>
-        <th scope="col">U6</th>
-        <th scope="col">U7</th>
-        <th scope="col">Ugab</th>
-   
-        <th scope="col">U95</th>
-      </tr>
-    </thead>
-    @foreach ($uc as $uc)
-             
-    <tbody>           
-  
-      <td >{{$uc->meanstd}}</td>
-      <td >{{$uc->meanuut}}</td>
-      <td >{{$uc->ui}}</td>
-      <td >{{$uc->u2}}</td>
-      <td >{{$uc->u3}}</td>
-      <td >{{$uc->u4}}</td>
-      <td >{{$uc->u5}}</td>
-      <td >{{$uc->u6}}</td>
-      <td >{{$uc->u7}}</td>
-      <td >{{$uc->ugab}}</td>
-  
-      <td >{{$uc->u95}}</td>
-     </tbody>
-     @endforeach
-   </table>
+  <div class="rounded border">
+    <div class="table-responsive">
+      <table class="table text-center" >
+        <thead class="table-light">
+         <tr>
+            
+            <th scope="col">alat standar</th>
+            <th scope="col">alat yang dikalibrasi</th>
+            <th scope="col">U1</th>
+            <th scope="col">U2</th>
+            <th scope="col">U3</th>
+            <th scope="col">U4</th>
+            <th scope="col">U5</th>
+            <th scope="col">U6</th>
+            <th scope="col">U7</th>
+            <th scope="col">Ugab</th>
+       
+            <th scope="col">U95</th>
+          </tr>
+        </thead>
+        @foreach ($uc as $uc)    
+        <tbody>           
+      
+          <td >{{$uc->meanstd}}</td>
+          <td >{{$uc->meanuut}}</td>
+          <td >{{$uc->ui}}</td>
+          <td >{{$uc->u2}}</td>
+          <td >{{$uc->u3}}</td>
+          <td >{{$uc->u4}}</td>
+          <td >{{$uc->u5}}</td>
+          <td >{{$uc->u6}}</td>
+          <td >{{$uc->u7}}</td>
+          <td >{{$uc->ugab}}</td>
+      
+          <td >{{$uc->u95}}</td>
+         </tbody>
+         @endforeach
+       </table>
+    </div>
   </div>
+</div>
 </body>
 </html>

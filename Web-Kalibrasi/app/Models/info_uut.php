@@ -23,6 +23,9 @@ class info_uut extends Model
         'tgl_test',
         'tempat_test',
         'suhu_ruang',
+        'daerah_ukur',
+        'inhomo',
+        'no_sertifstd',
         'kelembaban',
         'tekanan'
     ];

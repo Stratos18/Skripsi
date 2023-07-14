@@ -108,6 +108,31 @@
                                   </span>
                             </div>
                         </div>
+                        <div class="row mb-1">
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">daerah ukur</label>
+                            <div class="col-sm-8">
+                                <input type="res" class="form-control form-control-sm" name="daerah_ukur"  placeholder="1 - 100" value="{{old('daerah_ukur')}}">
+                                @error('daerah_ukur')
+                                <small class="text-danger mt-2 text-sm">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="col-sm-1">
+                                <span class="form-text">
+                                   m/s
+                                  </span>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">alat standar</label>
+                            <div class="col-sm-8">
+                                <select id="no_sertifstd" name="no_sertifstd" class="form-select text-center" >
+                                    <option selected>pilih-alat-standar</option>
+                                    @foreach ($alatstd as $option)
+                                        <option value="{{$option->no_sertifstd}}">{{ $option->nama_alatstd }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </div>
     
                 <!--form sebelah kanan-->
@@ -154,6 +179,17 @@
                                 <span class="form-text">
                                     Hpa
                                   </span>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <label for="colFormLabelSm" class="col-sm-3 col-form-label col-form-label-sm">inhomogenitas</label>
+                            <div class="col-sm-8">
+                                <input type="float" class="form-control form-control-sm" name="inhomo" placeholder="0.00" value="{{old('inhomo')}}">
+                                @error('inhomo')
+                                <small class="text-danger mt-2 text-sm">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="col-sm-1">
                             </div>
                         </div>
                         

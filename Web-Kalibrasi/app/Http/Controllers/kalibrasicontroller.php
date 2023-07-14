@@ -19,9 +19,18 @@ class kalibrasicontroller extends Controller
         return view('page.kalibrasi',['listuut'=>$listuut]);
     }
     public function create(){
-        return view('kalibrasi.infouut');
+        $alatstd = alat_standar::all();
+        return view('kalibrasi.infouut',compact('alatstd'));
+    }
+    public function hapus($no_order){
+        $data = info_uut::find($no_order);
+        if (!$data) {
+            return redirect()->route('pkalibrasi');}
+        $data->delete();
+        return redirect()->route('pkalibrasi');
     }
     public function store(Request $request){
+        $no_order = $request->input('no_order');
         $validatorData = $request->validate([
         'no_order'=>['integer','required',Rule::unique('info_uuts', 'no_order')->ignore($request->id)],
         'pemilik'=>['string','required'],
@@ -31,26 +40,31 @@ class kalibrasicontroller extends Controller
         'tipe'=>['string','required'],
         'no_seri'=>['string','required'],
         'resolusi_uut'=>['decimal:2','required'],
+        'daerah_ukur'=>['required'],
+        'no_sertifstd'=>['required'],
         'tgl_test'=>['date','required'],
         'tempat_test'=>['string','required'],
         'suhu_ruang'=>['decimal:2','required'],
         'kelembaban'=>['decimal:2','required'],
-        'tekanan'=>['decimal:2','required']
+        'tekanan'=>['decimal:2','required'],
+        'inhomo'=>['required']
         ]);
     
         info_uut::create($validatorData);
-    
-        return redirect('/pkalibrasi/inputbaca')->with('sucess','data telah disimpan');
+        return redirect()->route('input.baca',['no_order' => $no_order])->with('sucess','data telah disimpan');
     }
-    public function inputbaca(){
-        $alatstd = alat_standar::all();
-        $options = info_uut::all();
-        return view('kalibrasi.inputbacaan',compact('options', 'alatstd' ));
+    public function inputbaca($no_order){
+        $noorder = DB::table('info_uuts')
+        ->join('alat_standars', 'info_uuts.no_sertifstd', '=', 'alat_standars.no_sertifstd')
+        ->where('info_uuts.no_order', $no_order)
+        ->get();
+        $datauc = DB::table('tabel_hitungs')
+        ->where('tabel_hitungs.no_order',$no_order)
+        ->orderBy('set_poin', 'ASC')
+        ->get();
+        return view('kalibrasi.inputbacaan',['noorder'=>$noorder], ['datauc'=>$datauc]);
     }
-    public function getUc($option)  {
-    $data = ketidakpastian::where('no_order', $option)->get();
-    return view(route('input.baca'))->with('data', $data); // Ganti dengan nama view yang sesuai
-  }
+
     public function savebacaan( Request $request){
    $datamentah= $request ->validate([
         'no_order'=>['required'],
@@ -72,6 +86,7 @@ class kalibrasicontroller extends Controller
         'max_uut'=>['required'],
         'meanstd'=>['required'],
         'meanuut'=>['required'],
+        'koreksi'=>['required'],
         'sd'=>['required']
         ]);
       $dataketidakpastian = $request -> validate([
@@ -92,7 +107,7 @@ class kalibrasicontroller extends Controller
         ]);
         ketidakpastian::create($dataketidakpastian);
       data_mentah::create($datamentah);
-    return redirect('/pkalibrasi/inputbaca')->with('sucess','data telah disimpan');
+     return redirect()->back()->with('sucess','data telah disimpan');
        // return $request;
     }
 

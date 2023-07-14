@@ -25,6 +25,7 @@ class data_mentah extends Model
         'koreksiuut1',
         'koreksiuut2',
         'koreksiuut3',
+        'koreksi',
         'min_std',
         'min_uut',
         'max_std',
