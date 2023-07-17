@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\alatstandarcontroller;
+use App\Http\Controllers\cetakSertif;
+use App\Http\Controllers\cetaksertifcontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\homecontroller;
@@ -47,5 +49,7 @@ Route::post('/alatstd/update/{id}',[alatstandarcontroller::class,'update'])->nam
 
 Route::get('/profil',[profilcontroller::class,'profil'])->name('profil');
 Route::get('/detail/{no_order}',[profilcontroller::class,'detail'])->name('detail');
+Route::post('/sertif', [profilcontroller::class,'saveSertif'])->name('sertif');
+Route::get('/cetaksertif/{no_order}',[cetaksertifcontroller::class,'cetakSertif']);
 //Route::get('/edit',[profilcontroller::class,'edit'])->name('profile.edit');
 Route::match(['get', 'post'], '/update/{id}', [profilcontroller::class,'update']);

@@ -26,9 +26,11 @@
         <div class="row justify-content-end">
             
             <div class="col-6">
-                <h6> No. Sertifikat :<span>.............. </span></h3>
-                <h6> No. Order : <span>..............</span> </h3>
+              @foreach ($sertif as $item)
+                <h6> No. Sertifikat :<span>{{$item->no_sertifikat}}</span></h3>
+                <h6> No. Order : <span>{{$item->no_order}}</span> </h3>
                 <h6> Lembar ke : 2 dari 2 lembar</h3>
+                  @endforeach
             </div>
         </div>
         <div class="row">

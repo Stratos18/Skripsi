@@ -14,13 +14,14 @@
 
 <div class="container py-2" style="top: 20px;">
   <a href="{{route('profil')}}" class="btn btn-secondary"><i class="bi bi-arrow-90deg-left "></i> Kembali</a>
+  <a href="{{url('/cetaksertif/'.$data->no_order)}}" class="btn btn-secondary"><i class="bi bi-printer-fill"></i>cetak</a>
 </div>
   <div class="container card py-3">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <h5>Unit Under Test</h5>
-        <h5 class="display-4"> {{$data->nama_uut}}</h5>
+        <h5 class="display-4">{{$data->nama_uut}}</h5>
       </div>
       
     </div>
@@ -46,6 +47,22 @@
             <h6>: {{date('d/m/Y', strtotime($data->tgl_test))}}</h6>
             <h6>: {{$data->tempat_test}}</h5>
           </div>
+        </div>
+        <div class="row">
+        
+          <div class="col-6">
+            <h6>No sertifikat</h6>
+          </div>
+          <div class="col-6">
+            @if($sertif->count() > 0)
+               @foreach ($sertif as $item)
+            <h6>:{{$item->no_sertifikat}}</h6>
+            @endforeach
+            @else
+                <p>: No sertifikat belum dikeluarkan.</p>
+            @endif
+          </div>
+        
         </div>
     </div>
       <div class="col-4 ms-auto ">

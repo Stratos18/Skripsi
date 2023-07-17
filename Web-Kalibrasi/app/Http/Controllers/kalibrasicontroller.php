@@ -6,6 +6,7 @@ use App\Models\alat_standar;
 use App\Models\data_mentah;
 use App\Models\info_uut;
 use App\Models\ketidakpastian;
+use App\Models\sertifikat;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -29,6 +30,14 @@ class kalibrasicontroller extends Controller
         $data->delete();
         return redirect()->route('pkalibrasi');
     }
+  public function sertif(Request $request){
+    $dsertif = $request -> validate([
+        'no_order'=>['required'],
+        'no_sertif'=>['required'],
+    ]);
+    sertifikat::create($dsertif);
+   
+  }
     public function store(Request $request){
         $no_order = $request->input('no_order');
         $validatorData = $request->validate([

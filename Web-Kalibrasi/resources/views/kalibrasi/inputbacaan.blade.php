@@ -170,46 +170,54 @@
                     @endforeach
                     
                 </div>
-                <div class="">
-                    <table class="table text-center">
-                        <thead class="table-light">
-                         <tr>
-                            <th scope="col">U1</th>
-                            <th scope="col">U2</th>
-                            <th scope="col">U3</th>
-                            <th scope="col">U4</th>
-                            <th scope="col">U5</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            <td><input name="ui" id="u1" type="text" style="width: 75px;" readonly ></td>
-                            <td><input name="u2" id="u2"  type="text" style="width: 75px;"readonly></td>
-                            <td><input name="u3" id="u3"  type="text"style="width: 75px;"readonly></td>
-                            <td><input name="u4" id="u4"  type="text"style="width: 75px;"readonly></td>
-                            <td><input name="u5" id="u5"  type="text"style="width: 75px;"readonly></td>
-                         </tbody>
-                       </table>
-                    <table class="table text -center">
-                        <thead class="table-light">
-                            <th scope="col">U6</th>
-                            <th scope="col">U7</th>
-                            <th scope="col">Ugab</th>
-                            <th scope="col">Veff</th>
-                            <th scope="col">U95</th>
-                        </thead>
-                        <tbody>
-                            <td><input name="u6" id="u6"  type="text"style="width: 75px;"readonly></td>
-                            <td><input name="u7" id="u7"  type="text"style="width: 75px;"readonly></td>
-                            <td><input name="ugab" id="ugab"  type="text"style="width: 75px;"readonly></td>
-                            <td><input name="veff" id="veff"  type="text"style="width: 75px;"readonly></td>
-                            <td><input name="u95" id="u95"  type="text"style="width: 75px;"readonly></td>
-                        </tbody>
-                       </table>
+                <div class="row mb-2 justify-content-center">
+                    <div class="col-auto text-center">
+                        <label for="">u1</label>
+                        <input name="ui" id="u1" class="form-control"type="text" style="width: 75px;" readonly >
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">u2</label>
+                        <input name="u2" id="u2"  class="form-control"type="text" style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">u3</label>
+                        <input name="u3" id="u3" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">u4</label>
+                        <input name="u4" id="u4" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">u5</label>
+                        <input name="u5" id="u5" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">u6</label>
+                        <input name="u6" id="u6" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">u7</label>
+                        <input name="u7" id="u7" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">Ugab</label>
+                        <input name="ugab" id="ugab" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">Veff</label>
+                        <input name="veff" id="veff" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
+                    <div class="col-auto text-center">
+                        <label for="">U95</label>
+                        <input name="u95" id="u95" class="form-control" type="text"style="width: 75px;"readonly>
+                    </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                    <a href="{{route('home')}}" type="button" class="btn btn-primary">Back</a>
+                    <a href="{{route('pkalibrasi')}}" type="button" class="btn btn-primary">Back</a>
                     <button class="btn btn-success" type="submit">Simpan</button>
-                   
+                    @foreach ($noorder as $item)
+                    <a href="{{url('/detail/'.$item->no_order)}}" type="button" class="btn btn-warning "title="detail">Laporan</a>
+                   @endforeach
                     
                 </div> 
             </div>

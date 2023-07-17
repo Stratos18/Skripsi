@@ -6,6 +6,7 @@
     <title>infouut</title>
     <link href="{{asset('frontend/login.css')}}" rel="stylesheet" />
     <link href="{{asset('frontend/css/bootstrap.min.css')}}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
   <body>
     <!-- navbar-->
@@ -221,8 +222,8 @@
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a href="{{url('/pkalibrasi')}}" class="btn btn-secondary"><i class="bi bi-arrow-90deg-left"></i>kembali</a>
                                     <button type="submit" class="btn btn-primary mb-1 ">Simpan</button>
-                                    <button action="{{route('home')}}" type="button" class="btn btn-secondary mb-1">back</button>
                                 </div> 
                             </div>
                         </div>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class alatstandarcontroller extends Controller
 {
     public function alatstandar(){
-        $liststd = DB::table('alat_standars')->get();
+        $liststd = DB::table('alat_standars')->simplePaginate(15);
         return view('page.alatstd',['liststd'=>$liststd]);
     }
     public function create(){

@@ -54,6 +54,7 @@
             </tbody>
            @endforeach
           </table>
+          {{ $liststd->links()}}
         </div>
       </div>
     </div>

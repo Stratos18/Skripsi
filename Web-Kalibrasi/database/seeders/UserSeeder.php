@@ -13,12 +13,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'username' => 'petugas',
-            'name' => 'petugas',
-            'password' =>'petugas1',
+            'username' => 'bmkg-pusat',
+            'kantor' => 'bmkg',
+            'password' =>'bmkg',
             'remember_token' => Str::random(68),
             'level'=>'admin',
-            'nip'=>'1234567',
         ]);
     }
 }
